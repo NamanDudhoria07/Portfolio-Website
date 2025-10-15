@@ -1,5 +1,7 @@
 # Portfolio-Website
 A personal portfolio website made using html,css &amp;javascript
+Added dark and light mode for user easiness.
+Dont have many skills yet, but want to join this club for personal growth and development along with the fun and tensions that come along with it.
 
 # 💼 Naman Dudhoria — Portfolio Website
 
