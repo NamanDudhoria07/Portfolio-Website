@@ -12,12 +12,11 @@
       --card: #161b22;
       --accent: #e6eef8;
       --text: #e6eef8;
-      --muted:#e6eef8;
+      --muted: #e6eef8;
       --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
       --radius: 16px;
     }
 
-    /* Light theme variables */
     :root.light {
       --bg: #f9fafb;
       --card: #ffffff;
@@ -28,25 +27,21 @@
     }
 
     body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: var(--bg) url('stars-bg.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: var(--text);
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  transition: background 0.4s, color 0.4s;
-}
-:root.light body {
-  background: var(--bg) url('white-bg2.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: var(--text);
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  transition: background 0.4s, color 0.4s;
-}
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg) url('stars-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      transition: background 0.4s, color 0.4s;
+    }
 
-
+    :root.light body {
+      background: var(--bg) url('white-bg2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text);
+    }
 
     header {
       position: sticky;
@@ -112,7 +107,7 @@
       justify-content: center;
       text-align: center;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.6); /* Add transparent dark overlay for readability */
+      background: rgba(0, 0, 0, 0.6);
       transition: background 0.4s;
     }
 
@@ -180,6 +175,7 @@
       padding: 1.5rem;
       border-radius: var(--radius);
       transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
 
     .skill:hover, .project:hover {
@@ -238,8 +234,86 @@
     :root.light footer {
       border-top: 1px solid rgba(0,0,0,0.1);
     }
-    
 
+    /* --- Modal Styles --- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      max-width: 900px;
+      width: 90%;
+      max-height: 80%;
+      overflow-y: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      animation: fadeIn 0.4s ease;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent);
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close:hover {
+      color: #06b6d4;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -257,13 +331,17 @@
 
   <section class="hero">
     <h1>Hello, I'm Naman 👋</h1>
-    <p style="text-align:center;max-width:700px;margin:auto;color:var(--muted)">A passionate Computer Science student and aspiring Full Stack Developer crafting creative, clean, and responsive interfaces for the modern era.</p>
+    <p style="text-align:center;max-width:700px;margin:auto;color:var(--muted)">
+      A passionate Computer Science student and aspiring Full Stack Developer crafting creative, clean, and responsive interfaces for the modern era.
+    </p>
     <button class="btn" onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})">View My Work</button>
   </section>
 
   <section id="about">
     <h2>About Me</h2>
-    <p style="text-align:center;max-width:700px;margin:auto;color:var(--muted)">I'm currently pursuing B.Tech in Computer Science and Engineering from SRM Ktr. I love solving real-world problems through design and code. My interests include full-stack development, UI/UX, and open-source contribution.</p>
+    <p style="text-align:center;max-width:700px;margin:auto;color:var(--muted)">
+      I'm currently pursuing B.Tech in Computer Science and Engineering from SRM Ktr. I love solving real-world problems through design and code. My interests include full-stack development, UI/UX, and open-source contribution.
+    </p>
   </section>
 
   <section id="skills">
@@ -320,12 +398,28 @@
     <p>© 2025 Naman Dudhoria. Built with ❤️ using HTML, CSS & JS.</p>
   </footer>
 
+  <!-- Bakchodi Modal -->
+  <div id="bakchodiModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Bakchodi Moments 😂</h2>
+      <div class="gallery">
+          <img src="./bakchodi1.png.jpg" alt="Bakchodi 1">
+          <img src="./bakchodi2.png.jpg" alt="Bakchodi 2">
+          <img src="./bakchodi3.png.jpg" alt="Bakchodi 3">
+          <img src="./bakchodi4.png.jpg" alt="Bakchodi 4">
+          <img src="./bakchodi5.png.jpg" alt="Bakchodi 5">
+          
+        </div>
+    </div>
+  </div>
+
   <script>
+    // Theme toggle
     const toggleBtn = document.getElementById('theme-toggle');
     const root = document.documentElement;
-
-    // Load saved theme
     const savedTheme = localStorage.getItem('theme');
+
     if (savedTheme === 'light') {
       root.classList.add('light');
       toggleBtn.textContent = '🌙';
@@ -333,12 +427,37 @@
       toggleBtn.textContent = '☀️';
     }
 
-    // Toggle theme on click
     toggleBtn.addEventListener('click', () => {
       root.classList.toggle('light');
       const isLight = root.classList.contains('light');
       toggleBtn.textContent = isLight ? '🌙' : '☀️';
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // Bakchodi modal
+    const modal = document.getElementById('bakchodiModal');
+    const closeBtn = modal.querySelector('.close');
+    const bakchodiSkill = Array.from(document.querySelectorAll('.skill h3'))
+      .find(el => el.textContent.trim().toLowerCase() === 'bakchodi');
+
+    if (bakchodiSkill) {
+      bakchodiSkill.parentElement.addEventListener('click', () => {
+        modal.classList.add('show');
+      });
+    }
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('show');
+    });
+
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.classList.remove('show');
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') modal.classList.remove('show');
     });
   </script>
 
