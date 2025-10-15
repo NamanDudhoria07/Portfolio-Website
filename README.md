@@ -26,7 +26,9 @@ To build a **personal portfolio website** that:
 ---
 ## Screenshots
 <img width="1886" height="916" alt="image" src="https://github.com/user-attachments/assets/2d8581ae-df3b-4f83-a44a-4d79888052e9" />
+<img width="1886" height="911" alt="image" src="https://github.com/user-attachments/assets/8a952b79-ec2e-42e6-860f-402ef1506763" />
 <img width="1899" height="913" alt="image" src="https://github.com/user-attachments/assets/72599de7-d115-4bec-9cc3-cd9027e9367b" />
+
 
 ## 🚀 How to Run Locally
 
