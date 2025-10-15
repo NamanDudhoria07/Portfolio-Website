@@ -20,10 +20,10 @@ To build a **personal portfolio website** that:
 
 ## 🛠️ Tech Stack Used
 
-- **HTML5**
-- **CSS3**
+- **HTML**
+- **CSS**
 - **JavaScript (Vanilla)**
-- Hosted on **Netlify**
+- Hosted on **Netlify**(live deployement link added below)
 
 ---
 ## Screenshots
