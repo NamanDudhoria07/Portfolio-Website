@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bakchodi Moments 😄</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --accent: #e6eef8;
+      --text: #e6eef8;
+      --muted:#e6eef8;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --radius: 16px;
+    }
+
+    :root.light {
+      --bg: #f9fafb;
+      --card: #ffffff;
+      --accent: #7c3aed;
+      --text: #000000;
+      --muted: #121314;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg) url('stars-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    :root.light body {
+      background: var(--bg) url('white-bg2.jpg') no-repeat center center fixed;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 17, 23, 0.9);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      border-bottom: 1px solid rgb(255, 249, 249);
+      transition: background 0.4s;
+    }
+
+    :root.light header {
+      background: rgba(249, 250, 251, 0.9);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      color: var(--accent);
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background: var(--accent);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 2.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      max-width: 1100px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin: 3rem auto;
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--accent);
+      transition: color 0.3s;
+    }
+
+    .back:hover {
+      color: #06b6d4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Naman Dudhoria</div>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <h1>Bakchodi Moments 😂</h1>
+
+  <div class="gallery">
+    <img src="bakchodi1.png" alt="Bakchodi 1">
+    <img src="bakchodi2.png" alt="Bakchodi 2">
+    <img src="bakchodi3.png" alt="Bakchodi 3">
+    <!-- Add more images as needed -->
+  </div>
+
+  <a href="index.html" class="back">← Back to Portfolio</a>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      root.classList.add('light');
+      toggleBtn.textContent = '🌙';
+    } else {
+      toggleBtn.textContent = '☀️';
+    }
+
+    // Toggle theme on click
+    toggleBtn.addEventListener('click', () => {
+      root.classList.toggle('light');
+      const isLight = root.classList.contains('light');
+      toggleBtn.textContent = isLight ? '🌙' : '☀️';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>
