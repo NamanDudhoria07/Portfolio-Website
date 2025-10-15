@@ -31,8 +31,5 @@ To build a **personal portfolio website** that:
 
 
 ## 🚀 How to Run Locally
-
-1. **Clone the repository** (or download the folder):
-   ```bash
-   git clone https://github.com/your-username/portfolio-website.git
+https://naman-portfolio-site.netlify.app/
 
